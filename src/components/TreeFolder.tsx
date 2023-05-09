@@ -7,6 +7,7 @@ import SubmitButton from "./SubmitButton";
 interface TreeNode {
     name: string;
     type: number;
+    cloneId?: string;
     _id: string;
     children: TreeNode[];
 }
@@ -73,11 +74,12 @@ const TreeFolder = ({ data }: Props) => {
                                 <div
                                     style={{
                                         marginLeft: "5px",
-                                        color: Object.keys(changeInfo).includes(
-                                            item._id
-                                        )
-                                            ? "#FEC20C"
-                                            : "#212121",
+                                        color:
+                                            Object.keys(changeInfo).includes(
+                                                item._id
+                                            ) || item.cloneId
+                                                ? "#FEC20C"
+                                                : "#212121",
                                     }}
                                 >
                                     {item.name}

@@ -31,7 +31,7 @@ export default function Popup({
     setChangeInfo: (value: any) => void;
 }) {
     const [replaceId, setReplaceId] = React.useState(
-        changeInfo[topicData._id]?._id ?? ""
+        changeInfo[topicData._id]?._id ?? topicData?.cloneId ?? ""
     );
     const [type, setType] = React.useState(
         changeInfo[topicData._id]?.newType ?? topicData.newType ?? -1
@@ -105,7 +105,7 @@ export default function Popup({
                             marginTop: "20px",
                         }}
                     >
-                        <div>ReplaceId</div>
+                        <div>New Type</div>
                         <TextField
                             variant="outlined"
                             value={type}
