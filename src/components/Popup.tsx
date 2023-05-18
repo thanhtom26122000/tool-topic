@@ -33,8 +33,8 @@ export default function Popup({
     const [replaceId, setReplaceId] = React.useState(
         changeInfo[topicData._id]?._id ?? topicData?.cloneId ?? ""
     );
-    const [type, setType] = React.useState(
-        changeInfo[topicData._id]?.newType ?? topicData.newType ?? -1
+    const [status, setStatus] = React.useState(
+        changeInfo[topicData._id]?.status ?? topicData.status ?? -1
     );
     const handleAddChange = () => {
         if (replaceId.length >= 24) {
@@ -42,12 +42,12 @@ export default function Popup({
                 ...changeInfo,
                 [topicData._id]: {
                     _id: replaceId,
-                    newType: type,
+                    status: status,
                 },
             });
             onClose();
         } else {
-            if (type > 5 || type < 0) {
+            if (status > 5 || status < 0) {
                 window.alert("Type invalid");
             } else {
                 window.alert("invalid id");
@@ -105,12 +105,12 @@ export default function Popup({
                             marginTop: "20px",
                         }}
                     >
-                        <div>New Type</div>
+                        <div>Status</div>
                         <TextField
                             variant="outlined"
-                            value={type}
+                            value={status}
                             onChange={(event) => {
-                                setType(event.target.value);
+                                setStatus(event.target.value);
                             }}
                             style={{ width: "100%" }}
                             placeholder="Type"

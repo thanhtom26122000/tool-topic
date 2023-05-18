@@ -6,7 +6,7 @@ import SubmitButton from "./SubmitButton";
 
 interface TreeNode {
     name: string;
-    type: number;
+    status: number;
     cloneId?: string;
     _id: string;
     children: TreeNode[];
